@@ -1,33 +1,29 @@
-html
-{
+html {
     box-sizing: border-box;
 }
 
 *,
 *::before,
-*::after
-{
+*::after {
     box-sizing: inherit;
 }
 
 html,
-body
-{
+body {
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
 }
 
-body
-{
+body {
     font-family: 'Coda', cursive;
 
-    background: #fff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    background: #fff url('../img/geometry2.png');
+    /* Background pattern from Subtle Patterns */
 }
 
-.container
-{
+.container {
     display: flex;
     flex-direction: column;
 
@@ -35,22 +31,28 @@ body
     align-items: center;
 }
 
-h1
-{
+h1 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
 }
+
+.timerDiv {
+    position: relative;
+    left: 30px;
+    display: inline;
+}
+
+
 
 /*
  * Styles for the deck of cards
  */
 
-.deck
-{
+.deck {
     display: flex;
 
     width: 660px;
-    min-height: 680px;
+    /*min-height: 680px;*/
     margin: 0 0 3em;
     padding: 32px;
 
@@ -63,14 +65,14 @@ h1
     align-items: center;
 }
 
-.deck .card
-{
+.deck .card {
     font-size: 0;
 
     display: flex;
 
     width: 125px;
     height: 125px;
+    margin: 10px 0;
 
     cursor: pointer;
     transition: .5s ease;
@@ -84,21 +86,18 @@ h1
     align-items: center;
 }
 
-.deck .card.open
-{
+.deck .card.open {
     cursor: default;
     transform: rotateY(360deg);
 
     background: #02b3e4;
 }
 
-.deck .card.show
-{
+.deck .card.show {
     font-size: 33px;
 }
 
-.deck .card.match
-{
+.deck .card.match {
     font-size: 33px;
 
     cursor: default;
@@ -106,20 +105,20 @@ h1
     background: #02ccba;
 }
 
+
+
 /*
  * Styles for the Score Panel
  */
 
-.score-panel
-{
+.score-panel {
     width: 345px;
     margin-bottom: 10px;
 
     text-align: left;
 }
 
-.score-panel .stars
-{
+.score-panel .stars {
     display: inline-block;
 
     margin: 0;
@@ -127,27 +126,26 @@ h1
     padding: 0;
 }
 
-.score-panel .stars li
-{
+.score-panel .stars li {
     display: inline-block;
 
     list-style: none;
 }
 
-.score-panel .restart
-{
+.score-panel .restart {
     float: right;
 
     cursor: pointer;
 }
 
 
+
+
 /*
  * Styles for the Congratulations Popup
  */
 
-.finishPage
-{
+.finishPage {
     position: absolute;
     z-index: 10;
     top: 0;
@@ -156,15 +154,14 @@ h1
     display: none;
 
     width: 100%;
-    height: 1000px;
+    height: 100%;
 
     text-align: center;
 
     background-color: white;
 }
 
-.finishPage i
-{
+.finishPage i {
     font-size: 100px;
 
     margin-top: 200px;
@@ -172,8 +169,7 @@ h1
     color: green;
 }
 
-.finishPage button
-{
+.finishPage button {
     display: inline-block;
 
     width: 130px;
@@ -185,5 +181,44 @@ h1
     border: 1px solid #286090;
     border-radius: 8px;
     outline: none;
-    background-color: #286090;;
+    background-color: #286090;
+    ;
+}
+
+/*
+ * Responsive design
+ */
+@media screen and (max-width: 660px) {
+    .deck {
+        width: 100%;
+        padding: 5vw;
+    }
+    .deck .card {
+        width: 20%;
+        height: 17vw;
+        margin: 5px;
+    }
+    .deck .card.show {
+        font-size: 27px;
+    }
+
+    .deck .card.match {
+        font-size: 27px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .deck .card.show {
+        font-size: 20px;
+    }
+
+    .deck .card.match {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-height: 800px) {
+    .finishPage {
+        height: 800px;
+    }
 }
