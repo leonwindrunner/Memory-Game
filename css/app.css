@@ -164,7 +164,7 @@ h1 {
 .finishPage i {
     font-size: 100px;
 
-    margin-top: 200px;
+    margin-top: 10%;
 
     color: green;
 }
@@ -217,7 +217,7 @@ h1 {
     }
 }
 
-@media screen and (max-height: 800px) {
+@media screen and (max-height: 800px) and (min-width: 660px) {
     .finishPage {
         height: 800px;
     }
