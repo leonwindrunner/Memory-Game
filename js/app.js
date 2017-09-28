@@ -62,13 +62,12 @@ $(".deck").on("click", "li[status='closed']", function(e) {
     if (canClick) {
         $(this).attr("class", "card open show");
         //记录总共的点击数，并影响星级评分
-        count++;
-        $(".moves").text(count);
-        if (count > 35) {
+        
+        if (count > 20) {
             $(".stars li").eq(2).children().attr("class", "fa fa-star-o");
             starCount = 2;
         }
-        if (count > 45) {
+        if (count > 30) {
             $(".stars li").eq(1).children().attr("class", "fa fa-star-o");
             starCount = 1;
         }
@@ -81,6 +80,8 @@ $(".deck").on("click", "li[status='closed']", function(e) {
             secondClick = eval(e.target.id).symbol;
             secondId = e.target.id;
             $(this).attr("status", "open");
+            count++;
+            $(".moves").text(count);
             canClick = false;  //当连续点击了两个格子后，设置为不可点击的状态，
             									 //直到所有的动画效果都结束后才能继续点击
         }
